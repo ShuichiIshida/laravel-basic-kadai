@@ -37,6 +37,12 @@ class PostController extends Controller
         ]);
 
         //データベースに保存する
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->save();
+
+        //posts.indexビューを表示
         return redirect('/posts');
     }
 }
